@@ -218,3 +218,19 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# --- foodbot: 機密與私人資料（不可 commit）---
+# 其他形式的環境設定檔（範本 .env.example 例外，要進 git）
+.env.*
+!.env.example
+
+# DATA_DIR 通常在 repo 之外；萬一設在 repo 內，這些也不能被追蹤
+data/
+photos/
+records.xlsx
+records.xlsx.tmp
+*.xlsx
+*.xlsx.tmp
+
+# 本機記錄檔
+logs/
