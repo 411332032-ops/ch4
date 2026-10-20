@@ -92,13 +92,14 @@
 1. 在左邊選單點 **「OAuth2」**。
 2. 往下找到 **「OAuth2 URL Generator」** 區塊。
 3. 在 **「Scopes」**（範圍）清單，只勾選 **`bot`**。其他（尤其 `applications.commands`）都不要勾。
-4. 勾了 `bot` 之後，下面會出現 **「Bot Permissions」**（機器人權限）清單。**只勾這三個：**
+4. 勾了 `bot` 之後，下面會出現 **「Bot Permissions」**（機器人權限）清單。**只勾這四個：**
 
 | 要勾的權限 | 英文名稱 | 為什麼需要 |
 |---|---|---|
 | 檢視頻道 | View Channels | 才看得到 `food-log` 頻道和裡面的照片 |
 | 傳送訊息 | Send Messages | 才能回「處理中」和結果 |
-| 讀取訊息歷史 | Read Message History | 才能「回覆」某一則訊息，並編輯自己發過的訊息 |
+| 讀取訊息歷史 | Read Message History | 才能「回覆」某一則訊息 |
+| 新增反應 | Add Reactions | 收到照片時，在那則訊息上加 ⏳ 表示排隊中 |
 
 5. ❌ **絕對不要勾 `Administrator`（管理員）**，也不要多勾其他權限。權限給越少，萬一 bot 被騙或 token 外洩，能造成的傷害越小。
 6. 如果頁面有 **「Integration Type」**（整合類型），選 **「Guild Install」**（安裝到伺服器）。
@@ -109,12 +110,16 @@
 2. 把網址貼到瀏覽器網址列，按 Enter。
 3. 「新增至伺服器」／**Add to server** 下拉選單，選你剛建立的那個 Server。（如果下拉選單裡沒有你的 Server，代表你登入的帳號不是 Server 的擁有者。）
 4. 點 **「繼續」／Continue**。
-5. 確認畫面列出的權限就是上面那三個，沒有別的。點 **「授權」／Authorize**。
+5. 確認畫面列出的權限就是上面那四個，沒有別的。點 **「授權」／Authorize**。
 6. 若出現「我不是機器人」驗證，照做。
 
 ✅ **你應該看到**：「已授權」的畫面。回到 Discord，Server 右邊的成員清單多了你的 bot，標有 **「BOT」** 標籤，狀態是**離線**（灰色）。
 
 > bot 離線是正常的。等你之後把程式跑起來，它才會變成綠色上線。
+
+---
+
+> 💡 如果你的 bot 已經邀進 Server 了，才發現漏勾 **新增反應**：重新做一次 5-1、5-2，勾好四個權限後再授權一次，權限就會更新，不用把 bot 踢掉。
 
 ---
 
@@ -165,7 +170,7 @@ git status
 - [ ] **Message Content Intent 是打開的**，重新整理後仍是藍色
 - [ ] 我複製了 token，並**只**放進本機的 `.env`
 - [ ] 我關掉了 Public Bot
-- [ ] 邀請連結只勾了 `bot` scope 和三個權限（View Channels、Send Messages、Read Message History），**沒有勾 Administrator**
+- [ ] 邀請連結只勾了 `bot` scope 和四個權限（View Channels、Send Messages、Read Message History、Add Reactions），**沒有勾 Administrator**
 - [ ] bot 出現在我的 Server 成員清單，狀態是離線
 - [ ] `.env` 裡有 `DISCORD_TOKEN`、`CHANNEL_ID`、`CLAUDE_MODEL`、`DATA_DIR` 四項
 - [ ] `git status` 沒有顯示 `.env`
